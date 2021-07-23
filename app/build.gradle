@@ -44,9 +44,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleVersion"
 
     // Navigation Components
-    def navigationVersion = "3.6.0"
-    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
-    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+    // def navigationVersion = "3.6.0"
+    // implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    // implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
     //Gson
     implementation 'com.google.code.gson:gson:2.8.6'
