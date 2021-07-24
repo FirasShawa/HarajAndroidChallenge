@@ -1,4 +1,4 @@
-package com.example.harajtask.model
+package com.example.harajtask.model.post
 import com.google.gson.annotations.SerializedName
 
 data class Post(

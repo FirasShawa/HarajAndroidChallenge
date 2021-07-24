@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/img_post_thumb"
+        android:layout_width="@dimen/post_image_width"
+        android:layout_height="@dimen/post_image_height"
+        android:background="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_post_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="title"
+        android:textSize="18sp"
+        android:gravity="bottom|right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_post_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|right"
+        android:text="date"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_post_title" />
+
+    <TextView
+        android:id="@+id/tv_post_username"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="username"
+        android:textSize="13sp"
+        android:gravity="bottom|left"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_post_city"
+        app:layout_constraintTop_toBottomOf="@+id/tv_post_date" />
+
+    <TextView
+        android:id="@+id/tv_post_city"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="city"
+        android:textSize="13sp"
+        android:gravity="bottom|left"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_post_date" />
+</androidx.constraintlayout.widget.ConstraintLayout>
