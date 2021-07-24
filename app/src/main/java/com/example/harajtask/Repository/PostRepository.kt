@@ -1,17 +1,17 @@
-package com.example.harajtask.repo
+package com.example.harajtask.Repository
 
-import android.app.Application
 import android.content.Context
 import android.util.Log
+import androidx.lifecycle.LiveData
 import com.example.harajtask.model.Post
 import com.example.harajtask.utils.Constants
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class Post {
+class PostRepository {
 
     companion object{
-        fun readPosts(context: Context){
+        fun getAllPosts(context: Context):List<Post>{
             val jsonData = Constants.readJsonFomAssets(context)
             Log.d(Constants.TAG,jsonData!!)
 
@@ -24,8 +24,7 @@ class Post {
                     Log.d(Constants.TAG,post!!.title)
                 }
             }
-
-
+            return postList
         }
     }
 
