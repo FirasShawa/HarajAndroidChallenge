@@ -2,6 +2,7 @@ package com.example.harajtask.model.post
 
 import android.content.Context
 import android.text.Layout
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,7 @@ class PostAdapter(
     val postsList : List<Post>
 ):RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
    inner class PostViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
+    private var _onClickListener:OnClickListerner ? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         return PostViewHolder(
@@ -40,12 +42,27 @@ class PostAdapter(
 
             tv_post_title.text = post.title
             tv_post_city.text = post.city
-            tv_post_date.text = Constants.ParceTimeStamp(post.date)
+            tv_post_date.text = Constants.ConvertTimeStampToUnit(post.date)
             tv_post_username.text = post.username
+
+            post_layout.setOnClickListener {
+                if(_onClickListener != null){
+                    _onClickListener!!.onClick(position,post)
+                    Log.d(Constants.TAG,"2  Click!")
+                }
+            }
         }
     }
 
     override fun getItemCount(): Int {
         return postsList.size
+    }
+
+    fun SetOnClickListerner(onClickListerner:OnClickListerner){
+        this._onClickListener = onClickListerner
+    }
+
+    interface OnClickListerner{
+        fun onClick(position:Int , post:Post)
     }
 }

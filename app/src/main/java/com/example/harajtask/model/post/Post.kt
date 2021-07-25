@@ -1,6 +1,9 @@
 package com.example.harajtask.model.post
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Post(
     @SerializedName("body")
     val body: String,
@@ -16,4 +19,4 @@ data class Post(
     val title: String,
     @SerializedName("username")
     val username: String
-)
+): Parcelable

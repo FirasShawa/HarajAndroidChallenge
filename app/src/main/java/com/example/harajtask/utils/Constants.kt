@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat
 
 object Constants {
     const val TAG = "HarajTask"
+    const val SINGLE_POST_INTENT = "SinglePost"
 
     const val JSON_FILE_NAME = "data.json"
     const val IS_TESTING = true
@@ -30,12 +31,11 @@ object Constants {
     }
 
     private fun getDate(s: Long): java.util.Date {
-        val sdf = SimpleDateFormat("MM/dd/yyyy HH:mm:ss")
         val netDate = java.util.Date(s * 1000)
         return netDate
     }
 
-    fun ParceTimeStamp(longDate: Long):String{
+    fun ConvertTimeStampToUnit(longDate: Long):String{
         var date1 = java.util.Date(System.currentTimeMillis());
         var date2 = getDate(longDate)
         val diff: Long = date1.getTime() - date2.getTime()
@@ -65,5 +65,12 @@ object Constants {
 
         return "${Constants.DATE_TEXT_TEMPLATE}$result"
     }
+
+    fun ConvertTimeStampToDate(longDate: Long):String{
+        val sdf = SimpleDateFormat("yyyy/MM/dd HH:mm aa")
+        val netDate = java.util.Date(longDate*1000)
+        return sdf.format(netDate)
+    }
+
 
 }
