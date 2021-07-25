@@ -9,7 +9,7 @@ data class Post(
     @SerializedName("commentCount")
     val commentCount: Int,
     @SerializedName("date")
-    val date: Int,
+    val date: Long,
     @SerializedName("thumbURL")
     val thumbURL: String,
     @SerializedName("title")

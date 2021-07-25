@@ -9,9 +9,7 @@ import com.example.harajtask.model.post.Post
 class PostViewModel(
     val app: Application
 ):AndroidViewModel(app){
-    val postsLiveData : MutableLiveData<List<Post>> = MutableLiveData()
-
-    fun getAllPosts(){
-        postsLiveData.postValue(PostRepository.getAllPosts(app.applicationContext))
+    fun getAllPosts():List<Post>{
+        return PostRepository.getAllPosts(app.applicationContext)
     }
 }
