@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.item_post_layout.view.*
 
 
 class PostAdapter(
-    val postsList : List<Post>
 ):RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
    inner class PostViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
     private var _onClickListener:OnClickListerner ? = null
@@ -33,7 +32,7 @@ class PostAdapter(
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        var post = postsList.get(position)
+        var post = differ.currentList[position]
         holder.itemView.apply {
             Glide.with(context)
                 .load(post.thumbURL)
@@ -55,7 +54,7 @@ class PostAdapter(
     }
 
     override fun getItemCount(): Int {
-        return postsList.size
+        return differ.currentList.size
     }
 
     fun SetOnClickListerner(onClickListerner:OnClickListerner){
@@ -65,4 +64,18 @@ class PostAdapter(
     interface OnClickListerner{
         fun onClick(position:Int , post:Post)
     }
+
+
+    private val differCallback = object : DiffUtil.ItemCallback<Post>(){
+        override fun areItemsTheSame(oldItem: Post, newItem: Post): Boolean {
+            return oldItem.date == newItem.date
+        }
+
+        override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean {
+            return oldItem == newItem
+        }
+    }
+
+    val differ = AsyncListDiffer(this,differCallback)
+
 }

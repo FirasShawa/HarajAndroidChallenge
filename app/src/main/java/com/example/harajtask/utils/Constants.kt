@@ -10,7 +10,7 @@ object Constants {
     const val SINGLE_POST_INTENT = "SinglePost"
 
     const val JSON_FILE_NAME = "data.json"
-    const val IS_TESTING = true
+    const val IS_TESTING = false
 
     const val DATE_TEXT_TEMPLATE = "Since "
 

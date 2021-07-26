@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.harajtask"
-        minSdkVersion 22
+        minSdkVersion 27
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -43,11 +43,8 @@ dependencies {
     def lifeCycleVersion = "2.3.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleVersion"
-
-    // Navigation Components
-    // def navigationVersion = "3.6.0"
-    // implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
-    // implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion"
 
     //Gson
     implementation 'com.google.code.gson:gson:2.8.6'
